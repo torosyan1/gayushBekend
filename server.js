@@ -7,7 +7,11 @@ const cors = require('cors');
 // Create application/x-www-form-urlencoded parser
 app.use(bodyParser.json())
 app.use(express.static('public'));
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT"],
+    credentials: true,
+  }));
 
 
 app.post('/sendMail', async function (req, res) {
